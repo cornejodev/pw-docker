@@ -43,13 +43,29 @@ docker build -t playwright-tests .
 ### 2. Run tests with Docker
 Use the provided script:
 ```bash
-./bin/test.sh
+docker run --rm \
+  -v $(pwd)/playwright-report:/app/playwright-report \
+  playwright-tests
 ```
 - This does the following:
   - Runs tests in a Docker container
   - Persists the test report to ./playwright-report
   - Cleans up the container after completion
-
+    
+### (Optional) Use bash script 
+Use the provided script:
+```bash
+./bin/test.sh
+```
+- This bash script executes the previous steps 1 and 2 in one go
+```bash
+# test.sh
+#!/bin/bash
+docker build -t playwright-tests .
+docker run --rm \
+  -v $(pwd)/playwright-report:/app/playwright-report \
+  playwright-tests
+```
 ### 3. View the report
 
 ```bash
@@ -69,7 +85,6 @@ Key configuration:
 
 ## 📁 Project Structure
 
-.
 ├── tests/                  # Playwright test specs
 ├── bin/test.sh             # Docker test runner script
 ├── Dockerfile              # Docker image config
