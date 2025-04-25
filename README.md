@@ -3,6 +3,7 @@
 This project uses **Playwright v1.52.0** and is configured to run tests both locally and in a Dockerized environment for full consistency across development and CI.
 
 ---
+<a name="readme-top"></a>
 ## Table of Contents:
 - [Project Structure](project-structure)
 - [Local Setup](local-setup)
@@ -37,6 +38,8 @@ Or if you're setting up for the first time and need system dependencies:
 ```bash
 npx playwright install --with-deps
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🚀 Running Tests Locally
 
 - Run the tests
@@ -48,6 +51,7 @@ npx playwright test
 npx playwright show-report
 ```
 - This will open the HTML report in your default browser.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🐳 Running Tests via Docker (CI-Aligned Workflow)
 This ensures you're using the same Playwright version, browsers, and OS as in GitHub Actions CI.
@@ -91,6 +95,8 @@ Or open manually:
 ```bash
 open ./playwright-report/index.html
 ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🤖 GitHub Actions CI
 Playwright tests are automatically run on every push and pull request to main or master.
 
@@ -112,4 +118,4 @@ Dockerfile is pinned to the same version:
 FROM mcr.microsoft.com/playwright:v1.52.0-jammy
 package-lock.json is committed to lock all dependencies exactly.
 ```
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
