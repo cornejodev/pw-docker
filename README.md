@@ -3,6 +3,22 @@
 This project uses **Playwright v1.52.0** and is configured to run tests both locally and in a Dockerized environment for full consistency across development and CI.
 
 ---
+## Table of Contents:
+- [Project Structure](project-structure)
+- [Local Setup](local-setup)
+- [Running tests locally](running-tests-locally)
+- [Running tests via Docker](running-tests-via-docker)
+- [Github Actions CI](github-actions-ci)
+
+## 📁 Project Structure
+```
+├── tests/                  # Playwright test specs
+├── bin/test.sh             # Docker test runner script
+├── Dockerfile              # Docker image config
+├── package.json            # NPM dependencies with pinned Playwright version
+├── package-lock.json       # Locked dependency tree
+└── playwright-report/      # Generated HTML reports (gitignored)
+```
 
 ## ⚙️ Local Setup
 
@@ -21,7 +37,7 @@ Or if you're setting up for the first time and need system dependencies:
 ```bash
 npx playwright install --with-deps
 ```
-## 🚀 Run Tests Locally
+## 🚀 Running Tests Locally
 
 - Run the tests
 ```bash
@@ -33,7 +49,7 @@ npx playwright show-report
 ```
 - This will open the HTML report in your default browser.
 
-## 🐳 Run Tests via Docker (CI-Aligned Workflow)
+## 🐳 Running Tests via Docker (CI-Aligned Workflow)
 This ensures you're using the same Playwright version, browsers, and OS as in GitHub Actions CI.
 
 ### 1. Build the Docker image
@@ -79,22 +95,11 @@ open ./playwright-report/index.html
 Playwright tests are automatically run on every push and pull request to main or master.
 
 Key configuration:
-  - Docker image: mcr.microsoft.com/playwright:v1.52.0-jammy
-  - GitHub runner: ubuntu-22.04
-  - Report uploaded as an artifact
+  - **Docker image:** mcr.microsoft.com/playwright:v1.52.0-jammy
+  - **GitHub runner:** ubuntu-22.04
+  - **Report** uploaded as an **artifact**
 
-## 📁 Project Structure
-```
-├── tests/                  # Playwright test specs
-├── bin/test.sh             # Docker test runner script
-├── Dockerfile              # Docker image config
-├── package.json            # NPM dependencies with pinned Playwright version
-├── package-lock.json       # Locked dependency tree
-└── playwright-report/      # Generated HTML reports (gitignored)
-```
-
-## 📌 Version Pinning Strategy
-Playwright is pinned in package.json:
+Playwright version is specified in package.json:
 
 ```json
 "devDependencies": {
