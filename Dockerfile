@@ -12,4 +12,4 @@ COPY . .
 RUN npm ci
 
 # Run tests and generate HTML report by default
-CMD ["npx", "playwright", "test", "--reporter=html"]
+CMD ["npx", "playwright", "test"]
