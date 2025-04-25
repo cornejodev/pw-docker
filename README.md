@@ -84,13 +84,14 @@ Key configuration:
   - Report uploaded as an artifact
 
 ## 📁 Project Structure
-
+```
 ├── tests/                  # Playwright test specs
 ├── bin/test.sh             # Docker test runner script
 ├── Dockerfile              # Docker image config
 ├── package.json            # NPM dependencies with pinned Playwright version
 ├── package-lock.json       # Locked dependency tree
 └── playwright-report/      # Generated HTML reports (gitignored)
+```
 
 ## 📌 Version Pinning Strategy
 Playwright is pinned in package.json:
